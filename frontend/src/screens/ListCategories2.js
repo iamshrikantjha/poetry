@@ -36,7 +36,8 @@ const ListCategories2 = () => {
 
     if (loading === true) {
       return(
-        <ImageBackground source={{uri: 'https://www.fonewalls.com/wp-content/uploads/Columbia-Blue-Gradient-Wallpaper.jpg'}}
+        // <ImageBackground source={{uri: 'https://www.fonewalls.com/wp-content/uploads/Columbia-Blue-Gradient-Wallpaper.jpg'}}
+        <ImageBackground source={require('./../../assets/cb.jpg')}
           resizeMode={'cover'}
           style={{
               // flex: 1,
@@ -60,7 +61,8 @@ const ListCategories2 = () => {
     else{
       return(<View>
         {/* Main List */}
-          <ImageBackground source={{uri: 'https://www.fonewalls.com/wp-content/uploads/Columbia-Blue-Gradient-Wallpaper.jpg'}}
+          {/* <ImageBackground source={{uri: 'https://www.fonewalls.com/wp-content/uploads/Columbia-Blue-Gradient-Wallpaper.jpg'}} */}
+          <ImageBackground source={require('./../../assets/cb.jpg')}
           resizeMode={'cover'}
           style={{
               // flex: 1,
@@ -78,9 +80,10 @@ const ListCategories2 = () => {
           }}>
   
   
-          {data.map((data) => (
+          {data.map((data, i) => (
                     // <Poem text={poem.content} />
-                    <ListCard2 url={data.imgurl} theme={data.name} text={data.discription}/>
+                    console.log(i),
+                    <ListCard2 key={i} id={i+1} url={data.imgurl} theme={data.name} text={data.discription}/>
           ))}
   
   
@@ -103,8 +106,14 @@ const ListCategories2 = () => {
               <ListCard2 url={''} theme={''} text={''}/>
               <ListCard2 url={''} theme={''} text={''}/>
               <ListCard2 url={''} theme={''} text={''}/> */}
-            
+            <View style={{
+             width: wp(100),
+             height: hp(5)
+           }}>
+
+           </View>
            </ScrollView>
+           
            </ImageBackground>
       </View>)
   

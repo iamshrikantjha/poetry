@@ -11,137 +11,138 @@ import {
 } from 'react-native-responsive-screen';
 import ListPoems from './ListPoems';
 
-const ListCard2 = (props) => {
+const ListCard2 = props => {
   const navigation = useNavigation();
   return (
     <View>
       {/* Slot Category */}
-      <TouchableOpacity
-      onPress={()=> navigation.navigate('ListPoems',{
-        theme: props.theme,
-        url: props.url,
-      })}
+      <View
+        style={{
+          width: wp(100),
+          height: hp(30),
+          // backgroundColor: 'pink',
+          // marginTop: hp(1),
+          justifyContent: 'center',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-evenly',
+        }}>
+        {/* Image */}
+        <View
           style={{
-            width: wp(100),
-            height: hp(30),
-            // backgroundColor: 'pink',
-            // marginTop: hp(1),
-            justifyContent: 'center',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
+            width: wp(75),
+            height: hp(25),
+            //   backgroundColor: 'lightgreen',
+            borderRadius: 15,
+            overflow: 'hidden',
+            //   borderWidth: wp(0.2),
           }}>
-          {/* Image */}
-          <View
+          <Image
+            source={{
+              uri: props.url,
+            }}
             style={{
               width: wp(75),
               height: hp(25),
-            //   backgroundColor: 'lightgreen',
-              borderRadius: 15,
-              overflow: 'hidden',
-            //   borderWidth: wp(0.2),
+              zIndex: 1,
+            }}
+          />
+          <Text
+            style={{
+              fontFamily: 'circular-black',
+              fontSize: hp(3.3),
+              marginTop: hp(15),
+              marginLeft: wp(3),
+              color: 'white',
+              zIndex: 3,
+              position: 'absolute',
             }}>
-            <Image
-              source={{
-                uri:
-                  props.url,
-              }}
-              style={{
-                width: wp(75),
-                height: hp(25),
-                zIndex: 1,
-              }}
-            />
+            {props.theme}
+          </Text>
+          <Text
+            style={{
+              fontFamily: 'circular-medium',
+              fontSize: hp(1.5),
+              marginTop: hp(20),
+              marginLeft: wp(3),
+              color: 'white',
+              zIndex: 3,
+              position: 'absolute',
+            }}>
+            {props.text}
+          </Text>
+        </View>
+
+        {/* SideCol */}
+        <View
+          style={{
+            width: wp(10),
+            height: hp(25),
+            //   backgroundColor: 'yellow',
+            justifyContent: 'space-evenly',
+          }}>
+          {/* Love Icon */}
+          <View
+            style={{
+              // backgroundColor: 'green',
+              alignItems: 'center',
+            }}>
+            <AntDesign name="heart" size={hp(4.5)} color="red" />
             <Text
               style={{
-                fontFamily: 'circular-black',
-                fontSize: hp(3.3),
-                marginTop: hp(15),
-                marginLeft: wp(3),
-                color: 'white',
-                zIndex: 3,
-                position: 'absolute',
-              }}>
-             {props.theme}
-            </Text>
-            <Text
-              style={{
-                fontFamily: 'circular-medium',
                 fontSize: hp(1.5),
-                marginTop: hp(20),
-                marginLeft: wp(3),
+                fontFamily: 'circular-bold',
                 color: 'white',
-                zIndex: 3,
                 position: 'absolute',
+                marginTop: hp(1)
               }}>
-              {props.text}
+              {props.id}
             </Text>
           </View>
 
-          {/* SideCol */}
+          {/* Comment Icon */}
+          {/* <View
+            style={{
+              // backgroundColor: 'green',
+              alignItems: 'center',
+            }}>
+            <AntDesign name="book" size={27} color="black" />
+            <Text
+              style={{
+                fontSize: hp(1.4),
+                fontFamily: 'circular-black',
+                color: 'black',
+              }}>
+              {props.id}
+            </Text>
+          </View> */}
+
+          {/* Forward Icon */}
           <View
             style={{
-              width: wp(10),
-              height: hp(25),
-            //   backgroundColor: 'yellow',
-              justifyContent: 'space-evenly',
+              // backgroundColor: 'green',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}>
-
-
-
-            {/* Love Icon */}
-            <View
+            <TouchableOpacity 
+            hitSlop={{top: hp(5), bottom: hp(5), left: hp(5), right: hp(5)}}
+              onPress={() =>
+                navigation.navigate('ListPoems', {
+                  theme: props.theme,
+                  url: props.url,
+                })
+              }
               style={{
-                // backgroundColor: 'green',
-                alignItems: 'center',
-              }}>
-              <AntDesign name="heart" size={27} color="red" />
-              <Text
-                style={{
-                  fontSize: hp(1.4),
-                  fontFamily: 'circular-black',
-                  color: 'black',
-                }}>
-                52k
-              </Text>
-            </View>
-
-            {/* Comment Icon */}
-            <View
-              style={{
-                // backgroundColor: 'green',
-                alignItems: 'center',
-              }}>
-              <AntDesign name="book" size={27} color="black" />
-              <Text
-                style={{
-                  fontSize: hp(1.4),
-                  fontFamily: 'circular-black',
-                  color: 'black',
-                }}>
-                13
-              </Text>
-            </View>
-
-            {/* Forward Icon */}
-            <View
-              style={{
-                // backgroundColor: 'green',
-                alignItems: 'center',
+                width: hp(4),
+                height: hp(4),
+                backgroundColor: 'black',
                 justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 100,
               }}>
-                  <View style={{
-                      width: hp(4),
-                      height: hp(4),
-                      backgroundColor: 'black',
-                      justifyContent: 'center',
-                      alignItems: "center",
-                      borderRadius: 100,
-                  }}>
-                    <FontAwesome name="arrow-right" size={hp(2)} color="white" />
-
-                  </View>
-              {/* <Text
+              <FontAwesome name="arrow-right" size={hp(2)} color="white" />
+            </TouchableOpacity>
+            {/* <Text
                 style={{
                   fontSize: hp(1.4),
                   fontFamily: 'circular-black',
@@ -149,12 +150,9 @@ const ListCard2 = (props) => {
                 }}>
                 13
               </Text> */}
-            </View>
-
-
           </View>
-        </TouchableOpacity>
-     
+        </View>
+      </View>
     </View>
   );
 };

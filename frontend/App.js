@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 
 import Nav from './src/navigation/Nav';
-console.disableYellowBox = true; 
+// console.disableYellowBox = true; 
 const App = () => {
   return (
     <>

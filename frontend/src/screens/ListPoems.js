@@ -126,29 +126,28 @@ const ListPoems = ({route, navigation}) => {
               fontSize: hp(2),
               color: 'white',
             }}>
-            20 posts
+            {poems.length}
           </Text>
         </ImageBackground>
         <ScrollView
           contentContainerStyle={{
             alignItems: 'center',
           }}>
-          {poems.map(poem => (
-            <Poem text={poem.content} />
+          {poems.map((poem,i) => (
+            <Poem key={i} text={poem.content} />
           ))}
-  
+
           <View
             style={{
               width: wp(100),
               height: hp(30),
-            }}></View>
+            }}>
+
+          </View>
         </ScrollView>
       </>
     );
-    
   }
-
-  
 };
 
 export default ListPoems;
