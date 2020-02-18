@@ -13,7 +13,7 @@ import ListCard2 from './ListCard2';
 const ListCategories2 = () => {
   
   // Testing
-
+  const [loading, setLoading] = useState(true)
   const [url, setUrl] = useState('');
   const [theme, setTheme] = useState('');
   const [text, setText] = useState('');
@@ -21,6 +21,7 @@ const ListCategories2 = () => {
 
   const fetchData = async () => {
     const result = await axios.get('http://192.168.0.103:8000/api/a').then((result)=>setData(result.data));
+    setLoading(false);
     // setPoems(result.poems);
     console.log('DATA DATA');
     console.log(data);
@@ -33,7 +34,7 @@ const ListCategories2 = () => {
 
   // Testing
 
-    if (!data) {
+    if (loading === true) {
       return(
         <ImageBackground source={{uri: 'https://www.fonewalls.com/wp-content/uploads/Columbia-Blue-Gradient-Wallpaper.jpg'}}
           resizeMode={'cover'}

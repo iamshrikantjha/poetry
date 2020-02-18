@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import AboutUs from '../screens/AboutUs';
 import Example from '../screens/Example';
+import Welcome from '../screens/Welcome';
 import PoemScreen from '../screens/PoemScreen';
 import ListCategories from '../screens/ListCategories';
 import ListCategories2 from '../screens/ListCategories2';
@@ -17,6 +18,7 @@ const Nav = () => {
     <NavigationContainer>
       <Stack.Navigator headerMode={'none'}>
         {/* <Stack.Screen name="Example" component={Example} /> */}
+        {/* <Stack.Screen name="Welcome" component={Welcome} /> */}
         <Stack.Screen name="ListCategories2" component={ListCategories2} />
 
         {/* <Stack.Screen name="ListCategories" component={ListCategories} /> */}
